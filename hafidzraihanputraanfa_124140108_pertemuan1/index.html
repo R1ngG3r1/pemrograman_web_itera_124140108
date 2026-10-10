@@ -1,14 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasir Kantin Ahmeng | Mini Pos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-sambutan">
+        <h1>Kasir Kantin AHMENG</h1>
+        <p>
+          Melayani Anda dengan sepenuh hati, kami dapat uang, Anda dapat barang
+        </p>
+      </div>
+    </header>
 
-  <link rel="stylesheet" href="style.css">
-  
-</head>
-<body>
-  
-</body>
+    <main class="kasir-ahmeng">
+      <div class="kolom-kiri">
+        <section class="kotak-barang">
+          <form id="form-barang" class="form-isian" novalidate>
+            <h3 class="judul-kotak">Input barang</h3>
+
+            <div class="grup-input">
+              <label for="input-nama">Nama barang</label>
+              <input
+                type="text"
+                id="input-nama"
+                placeholder="Contoh: Buku Tulis"
+                autocomplete="off"
+              />
+              <p class="pesan-error" id="error-nama"></p>
+            </div>
+
+            <div class="grup-input">
+              <label for="input-harga">Harga satuan (Rp)</label>
+              <input
+                type="number"
+                id="input-harga"
+                placeholder="Contoh: 5000"
+              />
+              <p class="pesan-error" id="error-harga"></p>
+            </div>
+
+            <div class="grup-input">
+              <label for="input-qty">Jumlah</label>
+              <input type="number" id="input-qty" placeholder="1" />
+              <p class="pesan-error" id="error-qty"></p>
+            </div>
+
+            <button type="submit" class="tombol">Tambah barang</button>
+          </form>
+        </section>
+
+        <section class="kotak-keranjang">
+          <h3 class="judul-kotak">Keranjang barang</h3>
+
+          <div class="tabel-gulir">
+            <table class="tabel-keranjang">
+              <thead>
+                <tr>
+                  <th class="sel-no">No</th>
+                  <th>Nama Barang</th>
+                  <th class="sel-angka">Harga Satuan</th>
+                  <th class="sel-angka">Qty</th>
+                  <th class="sel-angka">Subtotal</th>
+                  <th class="sel-aksi">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="keranjang-isi"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <aside class="kotak-ringkasan">
+        <h3 class="judul-kotak">Ringkasan belanja</h3>
+
+        <dl class="daftar-ringkasan">
+          <div class="item-ringkasan">
+            <dt>Total barang</dt>
+            <dd><span id="ringkasan-jumlah">0</span> barang</dd>
+          </div>
+          <div class="item-ringkasan">
+            <dt>Total harga</dt>
+            <dd id="ringkasan-total">Rp 0</dd>
+          </div>
+          <div class="item-ringkasan">
+            <dt>Diskon 10%</dt>
+            <dd id="ringkasan-diskon" class="nilai-diskon">- Rp 0</dd>
+          </div>
+        </dl>
+        <p class="petunjuk-diskon" id="ringkasan-petunjuk"></p>
+
+        <div class="item-ringkasan item-total-akhir">
+          <span>Total akhir</span>
+          <strong id="ringkasan-total-akhir">Rp 0</strong>
+        </div>
+
+        <div class="grup-bayar">
+          <label for="input-bayar">Uang bayar (Rp)</label>
+          <input type="number" id="input-bayar" placeholder="Contoh: 50000" />
+        </div>
+
+        <div class="kotak-kembalian" id="kembalian">
+          <span id="kembalian-label"></span>
+          <strong id="kembalian-nilai"></strong>
+        </div>
+
+        <button
+          type="button"
+          class="tombol tombol-transaksi-baru"
+          id="tombol-transaksi-baru"
+        >
+          Transaksi baru
+        </button>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
