@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catat tugas kuliah</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Catat tugas kuliah</h1>
+      <p>Catat tugas kuliahmu, atur tenggatnya, dan tandai yang sudah selesai.</p>
+    </header>
+
+    <p id="status" role="status"></p>
+
+    <div class="layout">
+      <!-- Kiri: kotak daftar tugas (scroll di dalam kotak) -->
+      <main class="panel list-panel">
+        <div class="toolbar">
+          <input type="search" id="searchInput" placeholder="Cari tugas..." autocomplete="off">
+          <button id="addBtn" class="btn-primary">Tambah tugas</button>
+        </div>
+
+        <div class="filters">
+          <div class="status-filters" role="group" aria-label="Filter status tugas">
+            <button data-filter="all" class="active" aria-pressed="true">Semua</button>
+            <button data-filter="done" aria-pressed="false">Selesai</button>
+            <button data-filter="pending" aria-pressed="false">Belum selesai</button>
+          </div>
+          <select id="courseFilter" aria-label="Filter mata kuliah"></select>
+        </div>
+
+        <div class="list-wrap">
+          <ul id="taskList"></ul>
+        </div>
+      </main>
+
+      <!-- Kanan: satu kotak berisi ringkasan dan kalender -->
+      <aside class="panel">
+        <h2>Ringkasan tugas</h2>
+        <div id="summary"></div>
+
+        <div class="calendar-head">
+          <button data-nav="-1" aria-label="Bulan sebelumnya">&lt;</button>
+          <h2 id="calendarTitle"></h2>
+          <button data-nav="1" aria-label="Bulan berikutnya">&gt;</button>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 Hafidz Raihan Putra Anfa</footer>
+
+  <!-- Form tambah / edit tugas -->
+  <dialog id="taskDialog">
+    <form id="taskForm">
+      <h2 id="dialogTitle">Tambah tugas</h2>
+
+      <label for="fTitle">Judul</label>
+      <input type="text" id="fTitle" required autocomplete="off">
+
+      <div class="row">
+        <div>
+          <label for="fCourse">Mata kuliah</label>
+          <input type="text" id="fCourse" list="courseList" placeholder="Contoh: PAW" autocomplete="off">
+          <datalist id="courseList"></datalist>
+        </div>
+        <div>
+          <label for="fPriority">Prioritas</label>
+          <select id="fPriority">
+            <option value="rendah">Rendah</option>
+            <option value="normal" selected>Normal</option>
+            <option value="tinggi">Tinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="fDesc">Deskripsi</label>
+      <textarea id="fDesc" rows="3"></textarea>
+
+      <label for="fDue">Waktu pengumpulan</label>
+      <input type="date" id="fDue" required>
+
+      <div class="form-actions">
+        <button type="button" id="cancelBtn">Batal</button>
+        <button type="submit" class="btn-primary">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Daftar tugas pada tanggal yang diklik di kalender -->
+  <dialog id="dayDialog">
+    <h2 id="dayTitle"></h2>
+    <ul id="dayList"></ul>
+    <div class="form-actions">
+      <button type="button" id="closeDayBtn" class="btn-primary">Tutup</button>
+    </div>
+  </dialog>
+
+  <!-- Konfirmasi hapus -->
+  <dialog id="confirmDialog">
+    <h2>Hapus tugas?</h2>
+    <p id="confirmText"></p>
+    <div class="form-actions">
+      <button type="button" id="confirmCancelBtn">Batal</button>
+      <button type="button" id="confirmDeleteBtn" class="btn-danger">Hapus</button>
+    </div>
+  </dialog>
+
+  <!-- type="module" wajib agar import/export ES6 berjalan -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

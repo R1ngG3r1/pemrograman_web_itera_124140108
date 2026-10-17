@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes &amp; Object Literals</title>
+  </head>
+  <body>
+    <header>
+      <h1>Classes &amp; Object Literals</h1>
+      <p>
+        Latihan: Buat class Product dengan inheritance ke DigitalProduct dan
+        PhysicalProduct
+      </p>
+    </header>
+    <main>
+      <hr />
+      <div>
+        <h2>Tambah produk</h2>
+        <div>
+          <div>
+            <label for="jenis">Jenis</label>
+            <select id="jenis">
+              <option value="digital">Digital</option>
+              <option value="fisik">Fisik</option>
+            </select>
+          </div>
+          <div>
+            <label for="nama">Nama produk</label
+            ><input type="text" id="nama" autocomplete="off" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label for="harga">Harga (Rp)</label
+            ><input type="number" id="harga" min="0" />
+          </div>
+          <div>
+            <label for="ekstra" id="labelEkstra">Ukuran file (MB)</label
+            ><input type="number" id="ekstra" min="0" step="any" />
+          </div>
+        </div>
+        <button id="tambahBtn">Tambah produk</button>
+        <p id="pesan"></p>
+      </div>
+      <hr />
+      <div>
+        <h2>Daftar produk</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>getInfo()</th>
+              <th>Harga akhir</th>
+              <th>instanceof</th>
+            </tr>
+          </thead>
+          <tbody id="daftar"></tbody>
+        </table>
+        <p id="total"></p>
+      </div>
+    </main>
+    <footer>&copy; 2026 Hafidz Raihan Putra Anfa</footer>
+    <script src="java.js"></script>
+  </body>
+</html>

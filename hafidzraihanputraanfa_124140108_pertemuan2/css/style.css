@@ -1,0 +1,188 @@
+:root {
+  --krem: #F9E6A8;
+  --kuning: #F2A900;
+  --oranye: #CC6F00;
+  --hijau-tua: #2E9E5B;
+  --hijau-bar: #9BE3AE;
+  --merah: #B3261E;
+  --teks: #3A2500;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: var(--teks);
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 28px 20px; flex: 1; }
+
+header {
+  background: var(--kuning);
+  border-bottom: 4px solid var(--oranye);
+  padding: 22px 28px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+header h1 { margin: 0 0 6px; font-size: 1.7rem; }
+header p { margin: 0; font-size: 1.05rem; }
+
+#status { min-height: 1.2em; margin: 0 0 10px; font-size: 0.95rem; }
+
+footer {
+  text-align: center;
+  padding: 18px 16px;
+  font-size: 0.9rem;
+  border-top: 2px solid var(--krem);
+}
+
+/* Kotak */
+.panel {
+  background: #fff;
+  border: 2px solid var(--krem);
+  border-radius: 10px;
+  padding: 22px;
+}
+.panel h2 { margin: 0 0 12px; font-size: 1.1rem; }
+
+/* Dua kolom: tinggi kotak kiri mengikuti kotak kanan */
+.layout { display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: stretch; }
+
+/* Form dan tombol */
+input, textarea, select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--kuning);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--teks);
+}
+
+button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: var(--krem);
+  color: var(--teks);
+}
+.btn-primary { background: var(--kuning); font-weight: bold; }
+.btn-danger { background: var(--merah); color: #fff; font-weight: bold; }
+button:hover { filter: brightness(0.95); }
+
+input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 2px solid var(--oranye);
+  outline-offset: 2px;
+}
+input[type="checkbox"] { accent-color: var(--oranye); }
+
+/* Kotak daftar tugas */
+.list-panel { display: flex; flex-direction: column; }
+.toolbar { display: flex; gap: 10px; margin-bottom: 12px; }
+.toolbar .btn-primary { white-space: nowrap; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.status-filters { display: flex; gap: 6px; }
+.filters select { width: auto; margin-left: auto; padding: 8px; font-size: 0.95rem; }
+.filters button.active { background: var(--kuning); font-weight: bold; box-shadow: inset 0 -3px 0 var(--oranye); }
+
+/* Daftar discroll di dalam kotak, jadi halaman tidak bertambah panjang */
+.list-wrap { position: relative; flex: 1; min-height: 440px; }
+#taskList { position: absolute; inset: 0; overflow-y: auto; padding-right: 6px; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--krem);
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.task input[type="checkbox"] { width: auto; }
+.task.done { background: #fff; border: 1px solid var(--krem); }
+.task.done .title { text-decoration: line-through; opacity: 0.65; }
+
+.task-body { flex: 1; min-width: 0; }
+.title, .desc, .date { display: block; word-wrap: break-word; }
+.title { font-size: 1.05rem; }
+.desc { font-size: 0.9rem; margin-top: 2px; }
+.date { font-size: 0.8rem; margin-top: 4px; }
+.date.late { color: var(--merah); font-weight: bold; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 5px 0; }
+.badge {
+  font-size: 0.75rem;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--kuning);
+}
+.badge.prio-tinggi { background: var(--kuning); border: 2px solid var(--oranye); font-weight: bold; }
+.badge.prio-rendah { border-color: var(--krem); }
+
+.task-actions { display: flex; gap: 6px; }
+.task-actions button { background: #fff; border: 1px solid var(--kuning); }
+.task-actions button[data-action="delete"] { color: var(--merah); border-color: var(--merah); }
+.empty { text-align: center; padding: 20px; }
+
+/* Ringkasan */
+.summary-line { display: flex; justify-content: space-between; margin: 0 0 4px; }
+.summary-line .late { color: var(--merah); }
+.bar-label { display: flex; justify-content: space-between; font-size: 0.9rem; margin: 12px 0 5px; }
+.bar { background: #EEE; border-radius: 8px; height: 16px; overflow: hidden; }
+.fill { height: 100%; }
+.fill-done { background: var(--hijau-tua); }
+.fill-pending { background: var(--hijau-bar); }
+
+/* Kalender */
+.calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 22px 0 12px;
+  padding-top: 18px;
+  border-top: 2px solid var(--krem);
+}
+.calendar-head h2 { margin: 0; text-align: center; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.dow { font-size: 0.8rem; font-weight: bold; padding-bottom: 4px; }
+.cell { padding: 9px 0; background: transparent; border-radius: 6px; font-size: 0.95rem; }
+.cell:hover { background: var(--krem); filter: none; }
+.cell.has-deadline { background: var(--kuning); font-weight: bold; }
+.cell.today { outline: 2px solid var(--oranye); }
+
+/* Dialog */
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 24px;
+  width: min(460px, 92vw);
+  background: #fff;
+  color: var(--teks);
+  border-top: 5px solid var(--kuning);
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
+dialog h2 { margin: 0 0 12px; font-size: 1.15rem; }
+dialog label { display: block; margin: 12px 0 5px; font-size: 0.9rem; }
+dialog p { margin: 0; }
+#dayList { max-height: 50vh; overflow-y: auto; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .task { flex-wrap: wrap; }
+  .task-actions { width: 100%; justify-content: flex-end; }
+  .filters select { margin-left: 0; }
+}

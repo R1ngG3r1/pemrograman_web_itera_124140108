@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async Programming</title>
+  </head>
+  <body>
+    <header>
+      <h1>Async Programming</h1>
+      <p>Latihan: Implementasi mekanisme retry dengan exponential backoff</p>
+    </header>
+    <main>
+      <hr />
+      <div>
+        <div>
+          <div>
+            <label for="gagal">Server gagal sebanyak (kali)</label
+            ><input type="number" id="gagal" value="3" min="0" />
+          </div>
+          <div>
+            <label for="retries">Maksimal retry</label
+            ><input type="number" id="retries" value="4" min="0" />
+          </div>
+          <div>
+            <label for="delay">Jeda awal (ms)</label
+            ><input type="number" id="delay" value="500" min="0" />
+          </div>
+        </div>
+        <p id="jadwal"></p>
+        <button id="runBtn">Jalankan</button>
+      </div>
+      <hr />
+      <div>
+        <h2>Log</h2>
+        <pre id="log">Klik Jalankan untuk mulai.</pre>
+      </div>
+    </main>
+    <footer>&copy; 2026 Hafidz Raihan Putra Anfa</footer>
+    <script src="java.js"></script>
+  </body>
+</html>
