@@ -1,6 +1,6 @@
 # Identitas
 
-Tugas Praktikum Pertemuan 2 - JavaScript Next Gen (ES6+)
+Tugas Praktikum Pertemuan 3 - React Basics
 
 | | |
 |---|---|
