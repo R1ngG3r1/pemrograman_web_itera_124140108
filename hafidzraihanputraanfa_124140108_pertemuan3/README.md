@@ -1,5 +1,14 @@
-# Aplikasi Manajemen Buku Pribadi
-## Deskripsi
+# Identitas
+
+Tugas Praktikum Pertemuan 2 - JavaScript Next Gen (ES6+)
+
+| | |
+|---|---|
+| Nama | Hafidz Raihan Putra Anfa |
+| NIM | 124140108 |
+| Kelas | PAW RA |
+
+## Deskripsi Aplikasi Manajemen Buku Pribadi
 
 Aplikasi web untuk mencatat buku pribadi. Setiap buku punya judul, penulis, dan status: **Dimiliki**, **Sedang dibaca**, atau **Ingin dibeli**.
 
