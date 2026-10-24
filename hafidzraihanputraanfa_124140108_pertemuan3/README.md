@@ -1,8 +1,4 @@
 # Aplikasi Manajemen Buku Pribadi
-
-Tugas Praktikum Pengembangan Aplikasi Web, Pertemuan 3 (React Basics)
-Nama: Hafidz Raihan Putra Anfa | NIM: 124140108
-
 ## Deskripsi
 
 Aplikasi web untuk mencatat buku pribadi. Setiap buku punya judul, penulis, dan status: **Dimiliki**, **Sedang dibaca**, atau **Ingin dibeli**.
